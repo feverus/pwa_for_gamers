@@ -5,8 +5,8 @@ const initialState: I.StateAll = {
 		page: 'setup',
 		dicesType: 6,
 		dicesCount: 1,
-		timerMinutes: 1,
-		timerSeconds: 1,
+		timerMinutes: 3,
+		timerSeconds: 30,
 	},
 }
 

@@ -55,16 +55,8 @@ function MyLayout_i(props:P) {
 				onClick={({key}) => props.onChangePage({page:key})}
 			/>
 			</Header>
-			<Content
-				style={{padding: '20px 5%',
-						minHeight: '100%'}}>
-				<Row
-					align="middle"
-					gutter={[16, 16]}>
-					<Col span={24}>
-						{props.children}
-						</Col>
-				</Row>
+			<Content>
+				{props.children}
 			</Content>
 		</Layout>
 	)

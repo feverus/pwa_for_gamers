@@ -7,7 +7,7 @@ import {mapDispatchToProps} from '../store/mapDispatchToProps';
 import 'antd/dist/antd.min.css'
 import '../styles/index.css'
 
-import {Radio , InputNumber, Card, Space, TimePicker} from 'antd';
+import {Radio , InputNumber, Card, Space, TimePicker, Col, Row} from 'antd';
 import moment from 'moment';
 
 type P = I.PropsStateSetup & I.PropsDispaich;
@@ -28,7 +28,7 @@ function Setup_i(props:P) {
         <>
         <Space
             direction="vertical"
-            style={{ display: 'flex' }}>
+            style={{ display: 'flex', padding: '20px 5%'}}>
             <Card
                 title="Тип костей"
                 size="small">
