@@ -3,6 +3,10 @@
 
 export interface StateSet {
 	page: string;
+	dicesType: number;
+	dicesCount: number;
+	timerMinutes: number;
+	timerSeconds: number;
 }
 
 
@@ -26,9 +30,27 @@ export interface ActionSet {
 export interface PropsStateMain {
 	page: string;
 }
+export interface PropsStateSetup {
+	dicesType: number;
+	dicesCount: number;
+	timerMinutes: number;
+	timerSeconds: number;
+}
+export interface PropsStateTimer {
+	timerMinutes: number;
+	timerSeconds: number;
+}
+export interface PropsStateDices {
+	dicesType: number;
+	dicesCount: number;
+}
 
 //функции для mapDispatchToProps
 
 export interface PropsDispaich {
 	onChangePage: Function; 
+	onChangeDicesType: Function; 
+	onChangeDicesCount: Function; 
+	onChangeTimerMinutes: Function; 
+	onChangeTimerSeconds: Function; 
 }
