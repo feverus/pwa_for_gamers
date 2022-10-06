@@ -4,7 +4,7 @@ const initialState: I.StateAll = {
 	set: {
 		page: 'setup',
 		dicesType: 6,
-		dicesCount: 1,
+		dicesCount: 4,
 		timerMinutes: 3,
 		timerSeconds: 30,
 	},

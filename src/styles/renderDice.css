@@ -1,0 +1,25 @@
+.dice {
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.dice-6-1 {
+    background-image: url('./dices/6/1.png');
+}
+.dice-6-2 {
+    background-image: url('./dices/6/2.png');
+}
+.dice-6-3 {
+    background-image: url('./dices/6/2.png');
+}
+.dice-6-4 {
+    background-image: url('./dices/6/4.png');
+}
+.dice-6-5 {
+    background-image: url('./dices/6/5.png');
+}
+.dice-6-6 {
+    background-image: url('./dices/6/6.png');
+}
+

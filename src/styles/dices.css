@@ -1,0 +1,58 @@
+.animation-speed-1 {transition-duration: 450ms}
+.animation-speed-2 {transition-duration: 500ms}
+.animation-speed-3 {transition-duration: 600ms}
+.animation-speed-4 {transition-duration: 700ms}
+.animation-speed-5 {transition-duration: 800ms}
+.animation-speed-6 {transition-duration: 900ms}
+.animation-speed-7 {transition-duration: 850ms}
+.animation-speed-8 {transition-duration: 750ms}
+.animation-speed-9 {transition-duration: 650ms}
+.animation-speed-10 {transition-duration: 550ms}
+
+.dice-left-enter, .dice-left-appear, .dice-left-exit-done {
+    transform: translate3d(-50vw, 0, 0) rotateZ(0);
+}
+.dice-left-enter-active, .dice-left-appear-active {
+    transform: translate3d(0, 0, 0) rotateZ(360deg);
+    transition-property: all;
+    transition-timing-function: ease-out;
+}
+.dice-left-exit {
+    transform: translate3d(0, 0, 0);
+}
+.dice-left-exit-active {
+    transform: translate3d(-50vw, 100vh, 0);
+    transition-property: all;
+    transition-timing-function: ease-out;
+}
+
+
+
+.dice-right-enter, .dice-right-appear, .dice-right-exit-done {
+    transform: translate3d(50vw, 0, 0) rotateZ(0);
+}
+.dice-right-enter-active, .dice-right-appear-active {
+    transform: translate3d(0, 0, 0) rotateZ(-360deg);
+    transition-property: all;
+    transition-timing-function: ease-out;
+}
+.dice-right-exit {
+    transform: translate3d(0, 0, 0);
+}
+.dice-right-exit-active {
+    transform: translate3d(50vw, 100vh, 0);
+    transition-property: all;
+    transition-timing-function: ease-out;
+}
+
+
+
+
+.dice-col {
+    display: flex;
+    justify-content: center;
+}
+.sum {
+    display: flex;
+    justify-content: center;   
+}
