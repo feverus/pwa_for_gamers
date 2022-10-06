@@ -8,8 +8,24 @@ body {
   overflow: hidden;
   height: auto;
 }
+body, html, #root, .layout {
+  height: 100%;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+@media (max-width: 500px) {
+  .ant-menu-item, .ant-menu-submenu-title {
+    padding: 5px!important;
+  }
+  .ant-layout-header {
+    padding: 0 10px;
+  }
+  .ant-menu-item .ant-menu-item-icon+span, .ant-menu-item .anticon+span, .ant-menu-submenu-title .ant-menu-item-icon+span, .ant-menu-submenu-title .anticon+span {
+    margin-left: 5px!important;
+  }
 }

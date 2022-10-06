@@ -48,11 +48,12 @@ function MyLayout_i(props:P) {
 			<Header>
 			<Menu
 				theme="dark"
-				mode="horizontal"
+				mode="inline"
 				style={{display:'flex'}}
 				defaultSelectedKeys={['setup']}
 				items={items}
 				onClick={({key}) => props.onChangePage({page:key})}
+				
 			/>
 			</Header>
 			<Content>
