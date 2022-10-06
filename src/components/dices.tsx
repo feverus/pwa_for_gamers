@@ -21,7 +21,8 @@ type UseDices = (
 					state: {
 						dicesArr:Array<number>, 
 						animationsArr:Array<number>, 
-						showed:boolean
+						showed:boolean,
+						history:Array<Array<number>>|undefined
 					},
 					api: {
 						newDices:ControlCallback
@@ -34,6 +35,7 @@ function Dices_i(props:P) {
 		const [dicesArr, cast] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 		const [animationsArr, shake] = useState([0])
 		const [showed, show] = useState(true)
+		const [history, addToHistory] = useState([[0]])
 
 
 		useEffect(() => {
@@ -51,6 +53,15 @@ function Dices_i(props:P) {
 				arrAnim.push(Math.round(Math.random()*9+1))
 			}
 			cast(arrDices)
+			console.dir(history)
+			console.dir(history[0][0])
+			if (history[0][0]===0) {	
+				console.dir("history - 0")			
+				addToHistory([arrDices])
+			} else {
+				console.dir("history - 1")		
+				addToHistory((h) => h.splice(1,0,arrDices))
+			}
 			shake(arrAnim)
 			show(true)
 		}, [])
@@ -65,7 +76,8 @@ function Dices_i(props:P) {
 		const state = {
 			dicesArr,
 			animationsArr,
-			showed
+			showed,
+			history
 		}
 		
 		const api = useMemo(
@@ -82,6 +94,7 @@ function Dices_i(props:P) {
 	const leftRight = ["-left", "-right"]
 	
 	let sum:number = state.dicesArr.reduce((sum, value) => (sum+value))
+
 	return (		
         <>
 			<Button 
@@ -107,7 +120,18 @@ function Dices_i(props:P) {
 				<Col span={24} className="sum">
 					{(sum!==0)?"Сумма костей "+sum:""}   
 				</Col>
-			</Row>        
+			</Row>    
+			<Row>
+				<Col span={24} className="sum">
+				{(state.history!==undefined)?state.history.map(
+				(v, id) => (		
+						<>
+							{v.map((n) => (<div>{n}</div>))}
+						</>
+					)
+				):''}
+				</Col>
+			</Row> 			    
         </>
 	)
 }
