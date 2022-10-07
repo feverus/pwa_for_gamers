@@ -4,6 +4,10 @@
     height: 100px;
 }
 
+.diceToBlue {
+    filter: hue-rotate(209deg);
+}
+
 .dice-6-1 {
     background-image: url('./dices/6/1.png');
 }
@@ -11,7 +15,7 @@
     background-image: url('./dices/6/2.png');
 }
 .dice-6-3 {
-    background-image: url('./dices/6/2.png');
+    background-image: url('./dices/6/3.png');
 }
 .dice-6-4 {
     background-image: url('./dices/6/4.png');
@@ -22,4 +26,5 @@
 .dice-6-6 {
     background-image: url('./dices/6/6.png');
 }
+
 

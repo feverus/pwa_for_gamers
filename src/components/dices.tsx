@@ -1,95 +1,23 @@
 import { connect } from 'react-redux';
-import { useState, useEffect, useMemo, useCallback } from 'react'
 import * as I from '../store/storeInterfaces';
 import {mapStateToPropsDices as mapStateToProps} from '../store/mapStateToProps';
 import {mapDispatchToProps} from '../store/mapDispatchToProps';
 
 import { Button, Row, Col } from 'antd';
 import { CSSTransition } from 'react-transition-group';
+
 import RenderDice from './renderDice'
+import { useDices } from '../hooks/useDices';
+import { DicesHistory } from './dicesHistory';
 
 import 'antd/dist/antd.min.css'
 import '../styles/index.css'
 import '../styles/dices.css'
 
+
+
 type P = I.PropsStateDices & I.PropsDispaich;
-type ControlCallback = () => void;
-type UseDices = (
-					count:number, 
-					type:number
-				) => [
-					state: {
-						dicesArr:Array<number>, 
-						animationsArr:Array<number>, 
-						showed:boolean,
-						history:Array<Array<number>>|undefined
-					},
-					api: {
-						newDices:ControlCallback
-					}
-				]
-
-function Dices_i(props:P) {
-
-	const useDices:UseDices = (count, type) => {
-		const [dicesArr, cast] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-		const [animationsArr, shake] = useState([0])
-		const [showed, show] = useState(true)
-		const [history, addToHistory] = useState([[0]])
-
-
-		useEffect(() => {
-			generate()
-		},
-		[])
-
-		const generate = useCallback(() => {
-			let arrDices:Array<number> = []
-			for (let i=0; i<count; i++) {
-				arrDices.push(Math.round(Math.random() * (type-1) +1))
-			}
-			let arrAnim:Array<number> = []
-			for (let i=0; i<count; i++) {
-				arrAnim.push(Math.round(Math.random()*9+1))
-			}
-			cast(arrDices)
-			console.dir(history)
-			console.dir(history[0][0])
-			if (history[0][0]===0) {	
-				console.dir("history - 0")			
-				addToHistory([arrDices])
-			} else {
-				console.dir("history - 1")		
-				addToHistory((h) => h.splice(1,0,arrDices))
-			}
-			shake(arrAnim)
-			show(true)
-		}, [])
-
-		const newDices = useCallback(() => {
-			console.log("newDices")
-			show(false)
-
-			setTimeout(generate, 1000)
-		}, [])
-
-		const state = {
-			dicesArr,
-			animationsArr,
-			showed,
-			history
-		}
-		
-		const api = useMemo(
-			() => ({
-				newDices,
-			}),
-			[]
-		)
-
-		return [state, api]
-	}
-
+function Dices_i(props:P): JSX.Element {
 	const [state, api] = useDices(props.dicesCount, props.dicesType)
 	const leftRight = ["-left", "-right"]
 	
@@ -118,18 +46,12 @@ function Dices_i(props:P) {
 			</Row>
 			<Row>
 				<Col span={24} className="sum">
-					{(sum!==0)?"Сумма костей "+sum:""}   
+					{(sum!==0)?"Сумма костей: "+sum:""}   
 				</Col>
 			</Row>    
 			<Row>
 				<Col span={24} className="sum">
-				{(state.history!==undefined)?state.history.map(
-				(v, id) => (		
-						<>
-							{v.map((n) => (<div>{n}</div>))}
-						</>
-					)
-				):''}
+					<DicesHistory history={state.history} />
 				</Col>
 			</Row> 			    
         </>
