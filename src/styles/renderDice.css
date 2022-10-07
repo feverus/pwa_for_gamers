@@ -28,3 +28,24 @@
 }
 
 
+.dice-2-0 {
+    background-image: url('./dices/2/0.png');
+}
+.dice-2-1 {
+    background-image: url('./dices/2/1.png');
+}
+
+.dice-12-1, .dice-12-2,  .dice-12-3, 
+.dice-12-4,  .dice-12-5,  .dice-12-6, 
+.dice-12-7,  .dice-12-8,  .dice-12-9, 
+.dice-12-10,  .dice-12-11,  .dice-12-12 
+{
+    background-image: url('./dices/12/1.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    font-family: fantasy;
+    padding-bottom: 10px;
+    color: #bcedff
+}

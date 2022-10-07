@@ -24,13 +24,13 @@ function Dices_i(props:P): JSX.Element {
 	let sum:number = state.dicesArr.reduce((sum, value) => (sum+value))
 
 	return (		
-        <>
+        <div className='bg-dices'>
 			<Button 
 				type="primary" block
 				onClick={() => (api.newDices())}>
 				Бросить кости
 			</Button>
-			<Row>
+			<Row justify='center'>
 				{state.dicesArr.map((valueFromArr, id) => (		
 					<CSSTransition
 						classNames={"animation-speed-" + state.animationsArr[id] + " dice" + leftRight[id % 2]}
@@ -54,7 +54,7 @@ function Dices_i(props:P): JSX.Element {
 					<DicesHistory history={state.history} />
 				</Col>
 			</Row> 			    
-        </>
+        </div>
 	)
 }
 

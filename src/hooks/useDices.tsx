@@ -30,7 +30,9 @@ export const useDices: UseDices = (count, type) => {
 	const generate = () => {
 		let arrDices: Array<number> = [];
 		for (let i = 0; i < count; i++) {
-			arrDices.push(Math.round(Math.random() * (type - 1) + 1))
+			let newValue = Math.round(Math.random() * (type - 1) + 1)
+			if (type === 2) newValue--
+			arrDices.push(newValue)
 		}
 		let arrAnim: Array<number> = [];
 		for (let i = 0; i < count; i++) {

@@ -10,7 +10,7 @@
 .animation-speed-10 {transition-duration: 550ms}
 
 .dice-left-enter, .dice-left-appear, .dice-left-exit-done {
-    transform: translate3d(-50vw, 0, 0) rotateZ(0);
+    transform: translate3d(calc(-50vw - 200px), 0, 0) rotateZ(0);
 }
 .dice-left-enter-active, .dice-left-appear-active {
     transform: translate3d(0, 0, 0) rotateZ(360deg);
@@ -21,7 +21,7 @@
     transform: translate3d(0, 0, 0);
 }
 .dice-left-exit-active {
-    transform: translate3d(-50vw, 100vh, 0);
+    transform: translate3d(calc(-50vw - 200px), calc(100vh - 200px), 0);
     transition-property: all;
     transition-timing-function: ease-out;
 }
@@ -40,7 +40,7 @@
     transform: translate3d(0, 0, 0);
 }
 .dice-right-exit-active {
-    transform: translate3d(50vw, 100vh, 0);
+    transform: translate3d(50vw, calc(100vh - 200px), 0);
     transition-property: all;
     transition-timing-function: ease-out;
 }
@@ -55,4 +55,16 @@
 .sum {
     display: flex;
     justify-content: center;   
+}
+
+.bg-dices {
+    background-image: url('./dices/bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100%;
+}
+@media (max-width: 500px) {
+    .bg-dices {
+        background-size: 250%;
+    }
 }
