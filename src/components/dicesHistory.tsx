@@ -23,7 +23,7 @@ export function DicesHistory({history}:P): JSX.Element {
 							</Col>
 						))}
 						<Col span={6} key={"dice-" + id}>
-							{"Сумма: " + v.reduce((sum, value) => (sum+value))}
+							{"Сумма:\u00A0" + v.reduce((sum, value) => (sum+value))}
 						</Col>
 					</Row>
 				)

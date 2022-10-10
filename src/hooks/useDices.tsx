@@ -45,7 +45,7 @@ export const useDices: UseDices = (count, type) => {
 			newHistory = [arrDices]
 		} else {
 			console.dir("history - 1")
-			newHistory = history.concat([arrDices])
+			newHistory = [arrDices].concat(history)
 		}
 
 		cast(arrDices)

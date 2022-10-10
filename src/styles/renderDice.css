@@ -1,5 +1,5 @@
 .dice {
-    background-size: cover;
+    background-size: auto;
     width: 100px;
     height: 100px;
 }
@@ -8,44 +8,36 @@
     filter: hue-rotate(209deg);
 }
 
-.dice-6-1 {
-    background-image: url('./dices/6/1.png');
-}
-.dice-6-2 {
-    background-image: url('./dices/6/2.png');
-}
-.dice-6-3 {
-    background-image: url('./dices/6/3.png');
-}
-.dice-6-4 {
-    background-image: url('./dices/6/4.png');
-}
-.dice-6-5 {
-    background-image: url('./dices/6/5.png');
-}
-.dice-6-6 {
-    background-image: url('./dices/6/6.png');
+.dice-2-0, .dice-2-1, 
+.dice-6-1, .dice-6-2, .dice-6-3, .dice-6-4, .dice-6-5, .dice-6-6, 
+.dice-12-1, .dice-12-2,  .dice-12-3, .dice-12-4,  .dice-12-5,  .dice-12-6, .dice-12-7,  .dice-12-8,  .dice-12-9, .dice-12-10,  .dice-12-11,  .dice-12-12
+ {
+    background-image: url('./dices/sprite.png');
 }
 
-
-.dice-2-0 {
-    background-image: url('./dices/2/0.png');
-}
-.dice-2-1 {
-    background-image: url('./dices/2/1.png');
+.dice-6-1, .dice-6-2, .dice-6-3, .dice-6-4, .dice-6-5, .dice-6-6{
+    background-position-y: -100px;
 }
 
-.dice-12-1, .dice-12-2,  .dice-12-3, 
-.dice-12-4,  .dice-12-5,  .dice-12-6, 
-.dice-12-7,  .dice-12-8,  .dice-12-9, 
-.dice-12-10,  .dice-12-11,  .dice-12-12 
+.dice-12-1, .dice-12-2,  .dice-12-3, .dice-12-4,  .dice-12-5,  .dice-12-6, .dice-12-7,  .dice-12-8,  .dice-12-9, .dice-12-10,  .dice-12-11,  .dice-12-12 
 {
-    background-image: url('./dices/12/1.png');
+    background-position-y: -200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 42px;
+    font-size: 40px;
     font-family: fantasy;
     padding-bottom: 10px;
+    padding-right: 7px;
     color: #bcedff
 }
+
+.dice-2-0 {background-position-x: 0px;}
+.dice-2-1 {background-position-x: -100px;}
+
+.dice-6-1 {background-position-x: 0px;}
+.dice-6-2 {background-position-x: -100px;}
+.dice-6-3 {background-position-x: -200px;}
+.dice-6-4 {background-position-x: -300px;}
+.dice-6-5 {background-position-x: -400px;}
+.dice-6-6 {background-position-x: -500px;}
