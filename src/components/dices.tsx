@@ -20,9 +20,6 @@ type P = I.PropsStateDices & I.PropsDispaich;
 function Dices_i(props:P): JSX.Element {
 	const [state, api] = useDices(props.dicesCount, props.dicesType)
 	const leftRight = ["-left", "-right"]
-	const fieldHeigth = (props.dicesCount % 2 === 0)?
-						props.dicesCount:
-						props.dicesCount + 1
 	
 	let sum:number = state.dicesArr.reduce((sum, value) => (sum+value))
 
@@ -34,7 +31,7 @@ function Dices_i(props:P): JSX.Element {
 				Бросить кости
 			</Button>
 			<Row justify='center'
-				className={'field ' + 'field-' + fieldHeigth}>
+				className={'field'}>
 				{state.dicesArr.map((valueFromArr, id) => (		
 					<CSSTransition
 						classNames={"animation-speed-" + state.animationsArr[id] + " dice" + leftRight[id % 2]}

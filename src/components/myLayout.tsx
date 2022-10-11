@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { useEffect } from 'react'
 import * as I from '../store/storeInterfaces';
 import {mapStateToPropsMain as mapStateToProps} from '../store/mapStateToProps';
 import {mapDispatchToProps} from '../store/mapDispatchToProps';
@@ -8,7 +7,7 @@ import 'antd/dist/antd.min.css'
 import '../styles/index.css'
 
 import type { MenuProps } from 'antd';
-import { Layout, Menu, Col, Row } from 'antd';
+import { Layout, Menu } from 'antd';
 import { LauncherSettings20Regular, Timer20Regular, CubeQuick20Regular } from "@fluentui/react-icons";
 
 interface PropsChild {
@@ -38,10 +37,6 @@ function MyLayout_i(props:P) {
 		getItem('Кости', 'dices', <CubeQuick20Regular/>),		
 	];
 	const { Header, Content } = Layout;
-	
-	useEffect(() => {
-		console.log(props.page)	  
-	})
 
 	return (
 		<Layout className="layout">

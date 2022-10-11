@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { useEffect, useState } from 'react'
 import * as I from '../store/storeInterfaces';
 import {mapStateToPropsSetup as mapStateToProps} from '../store/mapStateToProps';
 import {mapDispatchToProps} from '../store/mapDispatchToProps';
@@ -7,7 +6,7 @@ import {mapDispatchToProps} from '../store/mapDispatchToProps';
 import 'antd/dist/antd.min.css'
 import '../styles/index.css'
 
-import {Radio , InputNumber, Card, Space, TimePicker, Col, Row} from 'antd';
+import {Radio , InputNumber, Card, Space, TimePicker } from 'antd';
 import moment from 'moment';
 
 type P = I.PropsStateSetup & I.PropsDispaich;
@@ -15,9 +14,6 @@ type P = I.PropsStateSetup & I.PropsDispaich;
 const format = 'mm:ss';
 
 function Setup_i(props:P) {
-	useEffect(() => {
-		console.log("настройки")	  
-	})
     const onChangeTimerSettings = (e:moment.Moment | null) => {
         if (e!==null) {
             props.onChangeTimerMinutes({timerMinutes:e.minutes()})
@@ -29,13 +25,27 @@ function Setup_i(props:P) {
         <Space
             direction="vertical"
             style={{ display: 'flex', padding: '20px 5%'}}>
+                <Card>
+Это онлайн генератор костей (и таймер).<br/>              
+Вы можете настроить режим бросков от одной до десяти костей:
+<ul>
+    <li>монета (орел / решка)</li>
+    <li>стандартный шестигранный кубик</li>
+    <li>кубик d12</li>
+</ul>
+Время на таймере ограничено одним часом.
+                </Card>
+        </Space>
+        <Space
+            direction="vertical"
+            style={{ display: 'flex', padding: '20px 5%'}}>
             <Card
                 title="Тип костей"
                 size="small">
                 <Radio.Group 
                     onChange={(e) => props.onChangeDicesType({dicesType:e.target.value})}
                     value={props.dicesType}
-                    name="w2we2">
+                    name="dicesType">
                     <Radio value={2}>2</Radio>
                     <Radio value={6}>6</Radio>
                     <Radio value={12}>12</Radio>
@@ -45,7 +55,7 @@ function Setup_i(props:P) {
                 title="Количество костей"
                 size="small">
                 <InputNumber
-                    onChange={(e) => props.onChangeDicesCount({dicesCount:Math.floor(e)})}
+                    onChange={(e) => props.onChangeDicesCount({dicesCount:Math.floor(e || 2)})}
                     value={props.dicesCount}
                     max={10}
                     min={1}

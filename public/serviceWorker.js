@@ -30,15 +30,23 @@ self.addEventListener('fetch', (evt) => {
             })
         }        
       )
-      //.catch(() => caches
-      //  .match('offline.html')
-      //)
-  ) 
+      .catch(        
+        () => {  
+          if (evt.request.destination==='document') {
+            caches        
+              .match('offline.html')
+              .then (console.log(evt.request))
+          }
+
+        }
+      )         
+  )
 })
 
 self.addEventListener('activate', (evt) => {
   const cacheWhiteList = []
   cacheWhiteList.push(CACHE_NAME)
+  cacheWhiteList.push('dynamic')
   evt.waitUntil(
     caches.keys().then((cacheNames) =>
       Promise.all(

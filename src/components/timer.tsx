@@ -72,6 +72,12 @@ function Timer_i(props:P) {
 	},[])
 
 	useEffect(() => {
+		return () => {
+			stopTimer()
+		}
+	}, [])
+
+	useEffect(() => {
 		if (endtime!==0) {
 			console.log(endtime)
 			updateClock()

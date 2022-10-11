@@ -29,5 +29,5 @@ export function DicesHistory({history}:P): JSX.Element {
 				)
 			) : ''}
 		</Panel>
-	</Collapse>;
+	</Collapse>
 }

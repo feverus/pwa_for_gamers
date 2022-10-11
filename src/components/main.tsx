@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { useEffect } from 'react'
 import * as I from '../store/storeInterfaces';
 import {mapStateToPropsMain as mapStateToProps} from '../store/mapStateToProps';
 import {mapDispatchToProps} from '../store/mapDispatchToProps';
@@ -13,37 +12,34 @@ import '../styles/index.css'
 
 type P = I.PropsStateMain & I.PropsDispaich;
 
-
 function Main_i(props:P) {
+	let activeComponent:JSX.Element
 	switch(props.page) {
 		case "setup": {
-			return (
-				<MyLayout>
-					<Setup/>
-				</MyLayout>
-			)      
+			activeComponent = <Setup/>
+			break;
 		} 
 		case "timer": {
-			return (
-				<MyLayout>
-					<Timer/>
-				</MyLayout>
-			)      
+			activeComponent = <Timer/>  
+			break;
 		} 
 		case "dices": {
-			return (
-				<MyLayout>
-					<Dices/>
-				</MyLayout>
-			)      
+			activeComponent = <Dices/>
+			break;
 		} 
-		default: return (
-			<MyLayout>
-				<Setup/>
-			</MyLayout>
-		) 
+		default: 
+			activeComponent = <Setup/>
+			break;
 	}
+
+	return (
+		<MyLayout>
+			{activeComponent}
+		</MyLayout>
+	)  
 }
+
+
 
 const Main = connect(mapStateToProps(), mapDispatchToProps)(Main_i);
 export default Main;
